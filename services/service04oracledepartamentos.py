@@ -44,4 +44,16 @@ class ServiceOracleDepartamentos:
         cursor.close
         return modelo
     # Probamos la funcionalidad en el main04
-    
+
+
+# Ahora un DELETE
+    def borrarDepartamento(self, numero):
+        sql = "delete from DEPT where DEPT_NO = :p1"
+        cursor = self.connection.cursor()
+        # Ejecutamos la consulta
+        cursor.execute(sql, (numero,))
+        registros = cursor.rowcount
+        self.connection.commit()
+        # cerramos el cursor y devolvemos los registros
+        cursor.close()
+        return registros
