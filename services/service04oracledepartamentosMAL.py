@@ -74,15 +74,17 @@ class ServiceOracleDepartamentos:
         sql = "select * from DEPT"
         cursor = self.connection.cursor()
         cursor.execute(sql)
-        #CREAMOS UNA LISTA PARA ALMACENAR CADA DEPARTAMENTO
+        # Creamos una lista para almacenar cada depto
         datos = []
-        #RECORREMOS EL CURSOR DE DATOS
+        # Recorremos el cursor de datos
         for row in cursor:
-            #DEBEMOS CREAR UN NUEVO OBJETO DEPARTAMENTO
+            # Por cada vuelta de bucle debemos crear un nuevo objeto departamento,
+            # no que reutilice el mismo
             dept = departamento.Departamento()
             dept.numero = row[0]
             dept.nombre = row[1]
             dept.localidad = row[2]
+            # Esas filas se pierden en el tiempo, asi que las voy almacenando
             datos.append(dept)
         cursor.close()
         return datos
