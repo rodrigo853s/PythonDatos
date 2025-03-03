@@ -1,0 +1,14 @@
+class Plantilla:
+    idPlantilla = 0
+    apellido = ""
+    funcion = ""
+    salario = 0
+    hospital = 0
+
+# PLANTILLAS
+#   idPlantilla
+#    apellido
+#    funcion
+#    salario
+#    hospital
+   
